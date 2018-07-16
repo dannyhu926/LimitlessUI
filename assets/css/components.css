@@ -256,7 +256,7 @@
 .navigation > li > ul li.active > a,
 .navigation > li > ul li.active > a:hover,
 .navigation > li > ul li.active > a:focus {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(61, 170, 255, 0.45);
   color: #fff;
 }
 .navigation .navigation-header {
