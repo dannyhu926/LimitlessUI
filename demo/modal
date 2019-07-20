@@ -1,0 +1,7 @@
+弹窗分页
+<script>
+    $(".pagination a").click(function () {
+        var url = $(this).data('url');
+        $(".modal-content").load(url);
+    });
+</script>
