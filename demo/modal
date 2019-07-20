@@ -1,4 +1,4 @@
-弹窗分页
+弹窗modal翻页
 <script>
     $(".pagination a").click(function () {
         var url = $(this).data('url');
