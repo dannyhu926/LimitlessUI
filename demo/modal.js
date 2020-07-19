@@ -5,3 +5,6 @@
         $(".modal-content").load(url);
     });
 </script>
+
+点击提交按钮后，手动关闭
+$("#baseModal").modal("hide");
