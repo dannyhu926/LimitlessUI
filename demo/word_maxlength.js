@@ -1,0 +1,3 @@
+$('.maxlength').maxlength({
+	alwaysShow: true
+});
