@@ -1,4 +1,5 @@
 <div id="fans_list"></div>
+<input type='hidden' id='mid'/>
 json：{
   "items": [
     {"id": 1,"name": "Tetris","text": "s9xie/hed"},
@@ -22,8 +23,14 @@ json：{
                     results: data.items,
                 };
             }
-        }
+        },
+        formatSelection: resultFormatSelection,  //选中后样式
     });
+
+    function resultFormatSelection(item) {
+        $("#mid").val(item.id);
+        return item.text;
+    }
 </script>
 
 In Version 4.0.2 slightly different Just in processResults and in result :
