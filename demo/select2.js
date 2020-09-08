@@ -18,9 +18,11 @@ json：{
                     q: term,
                 };
             },
-            results: function (data) {
+			results: function (data, page) {
+				var more = (page * 10) < data.total; // whether or not there are more results available
                 return {
                     results: data.items,
+					more: more
                 };
             }
         },
