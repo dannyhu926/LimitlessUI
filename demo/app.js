@@ -102,6 +102,14 @@ var app = function () {
             if ($this.isInclude('tagsinput.min.js')) {
                 $('.tag-input').tagsinput();
             }
+            //输入格式化
+            if ($this.isInclude('inputmask.min.js')) {
+                $(".inputmask").each(function () {
+                    var obj = $(this);
+                    var mask = obj.data('mask');
+                    obj.inputmask({"mask": mask});
+                });
+            }
             // Select2
             if ($this.isInclude('select2.min.js')) {
                 $('.select2').each(function () {
