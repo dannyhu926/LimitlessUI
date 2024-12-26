@@ -424,6 +424,7 @@ var operate = function () {
         uploaderFile: function (obj) {
             var dir = obj.data('dir') ? obj.data('dir') : "image";
             var fsize = obj.data('fsize') ? obj.data('fsize') : 2;
+            var table = obj.data('table') ? obj.data('table') : '';
             var callback_input = obj.data('callback_inputid');
             var preview_image = obj.data('preview');
             var fileDefaultHtml = obj.data('default');
@@ -432,7 +433,7 @@ var operate = function () {
                 uploadUrl: '/upload/uploadify', //上传后台操作的方法
                 showPreview: false,
                 showUpload: false,
-                uploadExtraData: {dir: dir, size: fsize},
+                uploadExtraData: {dir: dir, size: fsize, table: table, input_name: callback_input},
                 uploadAsync: true,
                 maxFileCount: 1, //允许同时上传的最大文件个数
                 autoReplace: true,
