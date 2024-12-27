@@ -1,4 +1,4 @@
-Select2 内置了对 AJAX 的支持，使用 jQuery 的 AJAX 方法。通过查询关键字获取数据，适用于大数据
+Select2 内置了对 AJAX 的支持，使用 jQuery 的 AJAX 方法。通过查询关键字获取数据，适用于大数据 In Version 4.0.2 slightly different Just in processResults and in result :
 json：{
   "items": [
     {"id": 1,"name": "Tetris","text": "s9xie/hed"},
