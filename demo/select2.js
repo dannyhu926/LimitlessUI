@@ -1,4 +1,13 @@
-Select2 内置了对 AJAX 的支持，使用 jQuery 的 AJAX 方法。通过查询关键字获取数据，适用于大数据 In Version 4.0.2 slightly different Just in processResults and in result :
+`select2` 是一个用于增强 HTML 选择框功能的 jQuery 插件，支持搜索、远程数据加载等功能。要在 `select2` 中实现 AJAX 下拉自动分页，你需要配置 `select2` 的 AJAX 选项，并处理服务器端的分页逻辑。
+以下是一个基本的实现步骤：
+1. **配置 Select2 的 AJAX 选项**：
+   - 设置 `ajax` 选项，包括 `url`、`dataType`、`delay`、`data` 和 `processResults`。
+   - 使用 `data` 函数来构建请求参数，包括分页参数（如 `page`）。
+   - 使用 `processResults` 函数来处理服务器返回的数据，并设置分页信息processResults 函数中的 pagination.more 是一个布尔值，表示是否还有更多数据。（4.0.2版本以下是result）
+
+2. **服务器端处理分页**：
+   - 根据请求中的分页参数（如 `page` 和 `pageSize`）来查询数据库。
+   - 返回的数据应包含当前页的数据列表和总记录数，以便 `select2` 知道何时停止加载更多数据。
 json：{
   "items": [
     {"id": 1,"name": "Tetris","text": "s9xie/hed"},
