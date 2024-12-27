@@ -13,11 +13,11 @@ $(document).ready(function() {
         ajax: {
             url: '/api/search', // 替换为你的数据请求 URL
             dataType: 'json',
-            delay: 250,
+            delay: 250,  // 延迟时间，用于防抖动
             data: function (params) {
                 return {
                     q: params.term, // 搜索关键词
-                    page: params.page || 1
+                    page: params.page || 1 // 当前页码
                 };
             },
             processResults: function (data, params) {
