@@ -19,3 +19,12 @@ bootbox.prompt({
     message: "Your message here…", 
     callback: function(result){ /* your callback code */ }
 })
+
+
+bootbox.alert({
+   message: "重设高度",
+   callback: function() {
+	   $('.bootbox').find('.modal-dialog').css('max-height', '400px').css('overflow-y', 'auto');
+   }
+});
+   

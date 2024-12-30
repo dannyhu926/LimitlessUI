@@ -78,13 +78,23 @@ $(document).ready(function() {
 });
 
 
-    // Set/get value	
+    // 取选项值，设置选项值	
 	$('.access-get').on('click', function () { alert('Selected value is: '+$('.select-access-value').val()); });
 	$('.access-set').on('click', function () { $('.select-access-value').val('CA').trigger('change'); });
+	//清空下拉框选项
+    $('.access-set').on('click', function () { $('.select-access-value').val(null).trigger('change'); });
 	
-	// Enable/disable menu	
+	// 启用，禁用	
 	$('.access-disable').on('click', function () { $('.select-access-enable').prop('disabled', true); });
 	$('.access-enable').on('click', function () { $('.select-access-enable').prop('disabled', false); });
+	
+	//使用 tags: true 时，用户可以在下拉框中输入不存在的选项，并将其作为新选项添加到下拉列表中。
+    $('.js-example-basic-multiple').select2({
+        tags: true
+    });
+	
+	//销毁 #mySelect 上的 Select2 实例，并将其恢复为普通的 <select> 元素
+    $('#mySelect').select2('destroy');
 </script>
 
 
