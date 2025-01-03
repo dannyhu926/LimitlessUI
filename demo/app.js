@@ -186,8 +186,28 @@ var app = function () {
                     changeMonth: true,
                     changeYear: true,
                     dateFormat: dateFormat,
-                    yearRange: '-50:+10',
+                    yearRange: '-40:+20',
                     defaultDate: defaultDate,
+                    showButtonPanel: true,
+                    closeText: "关闭",
+                    beforeShow: function (input, inst) {
+                        setTimeout(function () {
+                            var buttonPane = $(input)
+                                .datepicker("widget")
+                                .find(".ui-datepicker-buttonpane");
+
+                            // 移除默认的 "Today" 按钮
+                            buttonPane.find('button:contains("Today")').remove();
+                            var btn = $('<button>', {
+                                text: '清空',
+                                click: function () {
+                                    $.datepicker._clearDate(input);
+                                }
+                            });
+
+                            btn.appendTo(buttonPane).addClass('ui-datepicker-current ui-state-default ui-priority-primary ui-corner-all');
+                        }, 1);
+                    },
                     maxDate: maxDate,
                     minDate: minDate
                 });
