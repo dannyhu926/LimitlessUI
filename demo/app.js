@@ -180,8 +180,8 @@ var app = function () {
                     monthNamesMin: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
                     monthNamesShort: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
                     dayNames: ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
-                    dayNamesMin: ['天', '一', '二', '三', '四', '五', '六'],
-                    dayNamesShort: ['天', '一', '二', '三', '四', '五', '六'],
+                    dayNamesMin: ['日', '一', '二', '三', '四', '五', '六'],
+                    dayNamesShort: ['周日','周一','周二','周三','周四','周五','周六'],
                     firstDay: 1,
                     changeMonth: true,
                     changeYear: true,
@@ -189,24 +189,12 @@ var app = function () {
                     yearRange: '-40:+20',
                     defaultDate: defaultDate,
                     showButtonPanel: true,
-                    closeText: "关闭",
-                    beforeShow: function (input, inst) {
-                        setTimeout(function () {
-                            var buttonPane = $(input)
-                                .datepicker("widget")
-                                .find(".ui-datepicker-buttonpane");
-
-                            // 移除默认的 "Today" 按钮
-                            buttonPane.find('button:contains("Today")').remove();
-                            var btn = $('<button>', {
-                                text: '清空',
-                                click: function () {
-                                    $.datepicker._clearDate(input);
-                                }
-                            });
-
-                            btn.appendTo(buttonPane).addClass('ui-datepicker-current ui-state-default ui-priority-primary ui-corner-all');
-                        }, 1);
+                    closeText: '清空',
+                    currentText: '今天',
+                    onClose: function () {
+                        if ($(event.srcElement).filter(".ui-datepicker-close").length > 0) {
+                            obj.val("");
+                        }
                     },
                     maxDate: maxDate,
                     minDate: minDate
